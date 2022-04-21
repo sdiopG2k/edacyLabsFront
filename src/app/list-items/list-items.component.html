@@ -1,0 +1,31 @@
+
+
+<div class="container pt-5 pb-5">
+    <div class="row">
+        <div class="col-3" *ngFor="let item of items | paginate: { itemsPerPage: 4, currentPage: p }">
+            <div class="d-flex flex-wrap justify-content-between">
+                <div class="card shadow mt-2">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item?.title}}</h5>
+                        <p class="card-text">{{ item?.description}}</p>
+                        <img class="card-img-top" src="{{ item?.mediaContent }}">
+                        <br>
+                        <span >
+                            <span style="background-color: #7fd7bc;font-size: 12px; border-radius: 20px;height: 24px; padding: 3px 10px ;"><a href="{{item?.link}}" target="_blank"><strong>DETAIL</strong></a></span>
+                          </span>
+                        <br>
+                    </div>
+                    <a class="btn btn-primary" (click)="getIdItem(item.id)">Modifier</a>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
+<div class="page">
+    <pagination-controls 
+    (pageChange)="p = $event"
+    (click)="getPage(p)"
+    previousLabel="Précédent"
+    nextLabel="Suivant"
+    ></pagination-controls>
+</div>

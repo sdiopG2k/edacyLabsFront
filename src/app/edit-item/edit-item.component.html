@@ -1,0 +1,45 @@
+
+<div class="container pt-5 pb-5">
+    <div class="row">
+        <h4>Modification Item</h4>
+        <div class="col-4">
+            <div class=" justify-content-between">
+                <div class="card shadow mt-2">
+                    <img class="card-img-top" src="{{ item?.mediaContent }}">
+                </div>
+            </div>
+        </div> 
+        <div class="col-8">
+            <div class=" justify-content-between">
+                <div class="card shadow mt-2">
+                    <div class="card-body">
+                        <form  [formGroup]="form">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <textarea type="textarea" formControlName="title" class="form-control" [value]="item?.title"></textarea>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea type="text" formControlName="description" class="form-control" [value]="item?.description"></textarea>
+                            </div>
+                            <br>
+                            <br>
+                            
+                            <button  class="btn btn-primary" (click)="updateItem()" >
+                                Modifier
+                            </button>
+
+                            <button  class="btn btn-danger" (click)="goBack()">
+                                Annuler
+                            </button>
+                           </form>
+                    </div>
+                </div>
+            </div>
+        </div>   
+         
+    </div>
+</div>
+    
+
